@@ -16,7 +16,12 @@ public:
 	// Sets default values for this component's properties
 	UPositionReport();
 
-protected:
+	UPROPERTY()
+		FString ObjectName;
+	
+	UPROPERTY()
+		FString ObjectPosition;
+
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
