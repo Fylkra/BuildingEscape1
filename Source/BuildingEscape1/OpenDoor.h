@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "GameFramework/Actor.h"
+#include "Engine/TriggerVolume.h"
 #include "OpenDoor.generated.h"
 
 
@@ -20,10 +22,21 @@ public:
 
 	FRotator NewRotation;
 
+private:
+	UPROPERTY(VisibleAnywhere)
+		float OpenAngle = 90.f;
+
+	UPROPERTY(EditAnywhere)
+		ATriggerVolume* DoorTrigger;
+
+
+	AActor* ActorThatActivates;
 
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
+
+	void OpenDoor();
 
 public:
 	// Called every frame
